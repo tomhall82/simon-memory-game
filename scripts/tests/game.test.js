@@ -45,6 +45,7 @@ describe("newGame works correctly", () => {
     game.score = 42;
     game.playerMoves = ["button1", "button2", "button3"];
     game.currentGame = ["button1", "button2", "button3"];
+    game.turnNumber = 3;
     document.getElementById("score").innerText = 42;
     newGame();
   });
@@ -59,6 +60,12 @@ describe("newGame works correctly", () => {
   });
   test("should display 0 for the element with the id of score", () => {
     expect(document.getElementById("score").innerText).toEqual(0);
+  });
+  test("expect data-listener attribute to be true", () => {
+    const elements = document.getElementsByClassName("circle");
+    for (let element of elements) {
+      expect(element.getAttribute("data-listener")).toEqual("true");
+    }
   });
 });
 
